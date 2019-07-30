@@ -1,8 +1,15 @@
-# React Native Push Notifications
-[![npm version](https://badge.fury.io/js/react-native-push-notification.svg?update=7)](http://badge.fury.io/js/react-native-push-notification)
-[![npm downloads](https://img.shields.io/npm/dm/react-native-push-notification.svg?update=7)](http://badge.fury.io/js/react-native-push-notification)
+# React Native Push Notifications (forked)
 
 React Native Local and Remote Notifications for iOS and Android
+
+**Note: This library has been forked from original library due to compatibility issues with Salesforce and Ubiquity. Please find the change log below**
+
+## LottoNZ RN Push Notifications - Changelog
+
+Problem statement - Ubiquity and Salesforce have two different structure of the push bundle. Ubiquity sends message body in 'MESSAGE' key, whereas Salesforce sends under 'ALERT' key.
+1. Introducing 'ALERT' string in RNPushNotificationAttributes.java file
+2. Customise validation to accommodate both 'message' and 'alert' in RNPushNotificationHelper.java file
+ 
 
 ## Supported React Native Versions
 | Component Version     | RN Versions    | README     |

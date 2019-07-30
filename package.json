@@ -1,6 +1,6 @@
 {
   "name": "react-native-push-notification",
-  "version": "3.1.2",
+  "version": "1.0.0",
   "description": "React Native Local and Remote Notifications",
   "main": "index",
   "scripts": {
@@ -17,11 +17,11 @@
     "gcm"
   ],
   "bugs": {
-    "url": "https://github.com/zo0r/react-native-push-notification/issues"
+    "url": "https://github.com/lotto-nz/lottonz-rn-push-notification/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:zo0r/react-native-push-notification.git"
+    "url": "git+ssh://git@github.com:lotto-nz/lottonz-rn-push-notification.git"
   },
   "peerDependencies": {
     "react-native": ">=0.33"
@@ -31,6 +31,6 @@
       "packageInstance": "new ReactNativePushNotificationPackage()"
     }
   },
-  "author": "zo0r <http://zo0r.me>",
+  "author": "",
   "license": "MIT"
 }
