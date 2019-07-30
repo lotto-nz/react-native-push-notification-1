@@ -1,6 +1,6 @@
 {
-  "name": "lottonz-rn-push-notification",
-  "version": "1.0.0",
+  "name": "@lotto-nz/lottonz-rn-push-notification",
+  "version": "1.0.1",
   "description": "React Native Local and Remote Notifications",
   "main": "index",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:lotto-nz/lottonz-rn-push-notification.git"
+    "url": "git+ssh://git@github.com/lotto-nz/lottonz-rn-push-notification.git"
   },
   "peerDependencies": {
     "react-native": ">=0.33"
@@ -31,6 +31,10 @@
       "packageInstance": "new ReactNativePushNotificationPackage()"
     }
   },
-  "author": "",
-  "license": "MIT"
+  "author": "lotto-nz",
+  "license": "MIT",
+  "homepage": "https://github.com/lotto-nz/lottonz-rn-push-notification#readme",
+  "directories": {
+    "example": "example"
+  }
 }
