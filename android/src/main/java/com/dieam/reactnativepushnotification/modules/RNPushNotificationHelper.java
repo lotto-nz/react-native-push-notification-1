@@ -83,8 +83,8 @@ public class RNPushNotificationHelper {
             return;
         }
 
-        if (bundle.getString("message") == null) {
-            Log.e(LOG_TAG, "No message specified for the scheduled notification");
+        if (bundle.getString("message") == null && bundle.getString("alert") == null) {
+            Log.e(LOG_TAG, "No message or alert specified for the scheduled notification");
             return;
         }
 
@@ -140,9 +140,9 @@ public class RNPushNotificationHelper {
                 return;
             }
 
-            if (bundle.getString("message") == null) {
+            if (bundle.getString("message") == null && bundle.getString("alert") == null) {
                 // this happens when a 'data' notification is received - we do not synthesize a local notification in this case
-                Log.d(LOG_TAG, "Cannot send to notification centre because there is no 'message' field in: " + bundle);
+                Log.d(LOG_TAG, "Cannot send to notification centre because there is no 'message' or 'alert' field in: " + bundle);
                 return;
             }
 
@@ -217,7 +217,8 @@ public class RNPushNotificationHelper {
                 notification.setGroup(group);
             }
 
-            notification.setContentText(bundle.getString("message"));
+            String bundleText = bundle.getString("message") != null ? bundle.getString("message") : bundle.getString("alert") != null ? bundle.getString("alert") : "";
+            notification.setContentText(bundleText);
 
             String largeIcon = bundle.getString("largeIcon");
 
@@ -267,7 +268,7 @@ public class RNPushNotificationHelper {
             String bigText = bundle.getString("bigText");
 
             if (bigText == null) {
-                bigText = bundle.getString("message");
+                bigText = bundleText;
             }
 
             notification.setStyle(new NotificationCompat.BigTextStyle().bigText(bigText));

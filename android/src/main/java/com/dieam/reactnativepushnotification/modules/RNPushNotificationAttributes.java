@@ -15,6 +15,7 @@ import static com.dieam.reactnativepushnotification.modules.RNPushNotification.L
 public class RNPushNotificationAttributes {
     private static final String ID = "id";
     private static final String MESSAGE = "message";
+    private static final String ALERT = "alert";
     private static final String FIRE_DATE = "fireDate";
     private static final String TITLE = "title";
     private static final String TICKER = "ticker";
@@ -39,6 +40,7 @@ public class RNPushNotificationAttributes {
 
     private final String id;
     private final String message;
+    private final String alert;
     private final double fireDate;
     private final String title;
     private final String ticker;
@@ -64,6 +66,7 @@ public class RNPushNotificationAttributes {
     public RNPushNotificationAttributes(Bundle bundle) {
         id = bundle.getString(ID);
         message = bundle.getString(MESSAGE);
+        alert = bundle.getString(ALERT);
         fireDate = bundle.getDouble(FIRE_DATE);
         title = bundle.getString(TITLE);
         ticker = bundle.getString(TICKER);
@@ -90,7 +93,8 @@ public class RNPushNotificationAttributes {
     private RNPushNotificationAttributes(JSONObject jsonObject) {
         try {
             id = jsonObject.has(ID) ? jsonObject.getString(ID) : null;
-            message = jsonObject.has(MESSAGE) ? jsonObject.getString(MESSAGE) : null;
+            message = jsonObject.has(MESSAGE) ? jsonObject.getString(MESSAGE) : jsonObject.has(ALERT) ? jsonObject.getString(ALERT) : null;
+            alert = jsonObject.has(ALERT) ? jsonObject.getString(ALERT) : null;
             fireDate = jsonObject.has(FIRE_DATE) ? jsonObject.getDouble(FIRE_DATE) : 0.0;
             title = jsonObject.has(TITLE) ? jsonObject.getString(TITLE) : null;
             ticker = jsonObject.has(TICKER) ? jsonObject.getString(TICKER) : null;
@@ -176,6 +180,7 @@ public class RNPushNotificationAttributes {
         Bundle bundle = new Bundle();
         bundle.putString(ID, id);
         bundle.putString(MESSAGE, message);
+        bundle.putString(ALERT, alert);
         bundle.putDouble(FIRE_DATE, fireDate);
         bundle.putString(TITLE, title);
         bundle.putString(TICKER, ticker);
@@ -205,6 +210,7 @@ public class RNPushNotificationAttributes {
         try {
             jsonObject.put(ID, id);
             jsonObject.put(MESSAGE, message);
+            jsonObject.put(ALERT, alert);
             jsonObject.put(FIRE_DATE, fireDate);
             jsonObject.put(TITLE, title);
             jsonObject.put(TICKER, ticker);
@@ -240,6 +246,7 @@ public class RNPushNotificationAttributes {
         return "RNPushNotificationAttributes{" +
                 "id='" + id + '\'' +
                 ", message='" + message + '\'' +
+                ", alert='" + alert + '\'' +
                 ", fireDate=" + fireDate +
                 ", title='" + title + '\'' +
                 ", ticker='" + ticker + '\'' +
